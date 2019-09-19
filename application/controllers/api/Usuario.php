@@ -41,13 +41,13 @@ class Usuario extends REST_Controller {
     {   
         if (count($this->input->post())>0) {
             $this->db->insert('usuario',$this->input->post());
-            $this->response(['Usuario credo con exito'], REST_Controller::HTTP_OK);
+            $this->response(['Usuario creado con exito'], REST_Controller::HTTP_OK);
         } 
         else{
             $input = json_decode(file_get_contents('php://input'), true);
             if($input != null && count($input, true)>0){
                 $this->db->insert('usuario',$input);
-                $this->response(['Usuario credo con exito'], REST_Controller::HTTP_OK);
+                $this->response(['Usuario creado con exito'], REST_Controller::HTTP_OK);
             }else{
                 $this->response(['No data'], REST_Controller::HTTP_BAD_REQUEST);
             }
